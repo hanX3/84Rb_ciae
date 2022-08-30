@@ -52,7 +52,7 @@ Sort::Sort(TString raw, TString out, TString name, int number)
   tr_in->Print();
   std::cout << "total_entry: " << total_entry << std::endl;
 
-  sprintf(temp_file_name, "%s%s_R%04d_m%d.root", out.Data(), name.Data(), run_no, WINDOWS);
+  sprintf(temp_file_name, "%s%s_R%04d_m%d_all_all.root", out.Data(), name.Data(), run_no, WINDOWS);
   file_out = new TFile(temp_file_name, "RECREATE");
 
   matrix = new TH2I("matrix", "CIAE in beam gamma matrix", 4096, BIN_MIN, BIN_MAX, 4096, BIN_MIN, BIN_MAX);
@@ -139,7 +139,7 @@ void Sort::Process()
   
   // write matrix file
   FILE *fp;
-  sprintf(temp_file_name, "./run%04d_m%d.m4b", run_no, WINDOWS);
+  sprintf(temp_file_name, "./run%04d_m%d_all_all.m4b", run_no, WINDOWS);
   if((fp=fopen(temp_file_name,"ab")) == NULL){
     std::cout<<"can't open file .m4b"<<std::endl;
   }
